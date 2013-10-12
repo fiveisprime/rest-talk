@@ -5,7 +5,7 @@ What is REST?
 
 REST
 ----
-* software architecture for distributed hypermedia systems
+* Software architecture for distributed hypermedia systems
 * **NOT** a software package, protocol or specific technology
 * Avoids custom protocols, just uses HTTP ([RFC 2616](http://pretty-rfc.herokuapp.com/RFC2616#character.sets))
 
@@ -158,15 +158,15 @@ Example HTTP Request & Response
 
 ### Request Header ###
 
-    Content-Type: text/plain; charset=utf-8 
+    Content-Type: text/plain; charset=utf-8
     Accept: */*
     Accept-Encoding: gzip,deflate,sdch
     ...
-  
+
 ### Response Header ###
 
-    Content-Type: application/xml 
-    Content-Length: 213 
+    Content-Type: application/xml
+    Content-Length: 213
     ...
 
 
@@ -223,7 +223,7 @@ Common Registered Link Relations
     <tr>
         <td>related</td><td>Link to a related resource</td></tr>
     <tr>
-        <td>previous or next</td><td>Link to previous or next resource in an ordered series of resources</td></tr>   
+        <td>previous or next</td><td>Link to previous or next resource in an ordered series of resources</td></tr>
     <tr>
         <td>first or last</td><td>Link to first or last resource in an ordered series of resources</td></tr>
 </table>
@@ -275,13 +275,13 @@ State Transfer Example1 Part1
         ...
         &lt;valid-until&gt;2009-10-02&lt;/valid-until&gt;
         &lt;atom:link href="http://www.example.org/quotes/buy?quote=abc1234"
-              rel="http://www.example.org/rels/quotes/buy"/&gt; 
+              rel="http://www.example.org/rels/quotes/buy"/&gt;
       &lt;/offer&gt;
     &lt;/html&gt;
 
 
 State Transfer Example1 Part2
------------------------------              
+-----------------------------
 ## Request ##
     POST /quotegen HTTP/1.1
     Host: www.example.org
@@ -303,10 +303,10 @@ State Transfer Example1 Part2
         ...
         &lt;valid-until&gt;2009-10-02&lt;/valid-until&gt;
         &lt;atom:link href="http://www.example.org/quotes/buy?quote=abc1234"
-              rel="http://www.example.org/rels/quotes/buy"/&gt; 
+              rel="http://www.example.org/rels/quotes/buy"/&gt;
       &lt;/offer&gt;
     &lt;/html&gt;
-                  
+
 
 Example 2: Hiring System, Part 2
 --------------------------------
@@ -330,7 +330,7 @@ Example 2: Hiring System, Part 2
       "name": "Joe Prospect",
       "id": "urn:example:hr:hiring:099",
       ...
-      "link" : { 
+      "link" : {
         "rel" : "http://www.example.org/rels/hiring/post-ref-result",
         "href" : "http://www.example.org/hires/099/refs"
       }
@@ -386,15 +386,15 @@ Example 2: Hiring System, Part 3
       "id": "urn:example:hr:hiring:099",
       "refs": ...,
       ...
-      "links" : [{ 
+      "links" : [{
           "rel" : "http://www.example.org/rels/hiring/add-ref-result",
           "href" : "http://www.example.org/hires/099/refs"
         },
-        { 
+        {
           "rel" : "http://www.example.org/rels/hiring/add-background-check",
           "href" : "http://www.example.org/hires/099/bgchecks"
         }]
-    } 
+    }
 
 
 Example 2: Hiring System, Part 4
@@ -419,12 +419,12 @@ Example 2: Hiring System, Part 4
         "name": "Joe Prospect",
         "id": "urn:example:hr:hiring:099",
         "refs": ...,
-        "link" : { 
+        "link" : {
           "rel" : "http://www.example.org/rels/hiring/make-offer",
           "href" : "http://www.example.org/hires/099/hire"
         }
       }
-    } 
+    }
 
 
 Designing Resource Names
@@ -562,7 +562,7 @@ Authentication
 * Engineering is the art of proper trade-offs: there's times when it's not the right decision to follow the specification
   + Choosing a non-standard way due to informed decision is totally okay
   + Making a decision based on ignorance is not okay
-* There are lots of other valid architectures and REST isn't the best for all situations (e.g. real-time requirements) 
+* There are lots of other valid architectures and REST isn't the best for all situations (e.g. real-time requirements)
 
 
 Hypermedia
@@ -581,7 +581,7 @@ Hypermedia
 
 Type Marshalling Delimna
 ------------------------
-1. Shared Schema 
+1. Shared Schema
 2. URI Construction
 3. Payload Decoration
 4. Narrow Media Type
@@ -589,7 +589,7 @@ Type Marshalling Delimna
 
 Shared Schema
 -------------
-* Publish document listing arguments and interaction details. 
+* Publish document listing arguments and interaction details.
 * Disadvantages: schema changes break clients as schema information not updated dynamically
 
 
@@ -605,14 +605,14 @@ URI Construction
 Payload Decoration
 ------------------
 * Add (meta) to htm, "type" to JSON, etc
-* Process data based on type hint. 
+* Process data based on type hint.
 * Drawback: payload tightly bound to source code; changes break existing clients if not realizing new payload info required.
 4. Narrow Media Type: (JAX-RS) @Consumes("application/stockquote+xml") Full control over URI & payload, but any independent client would have great difficulty keeping up with changes
 
 
 Narrow Media Type
 -----------------
-* (JAX-RS) @Consumes("application/stockquote+xml") 
+* (JAX-RS) @Consumes("application/stockquote+xml")
 * Full control over URI & payload
 * Drawback: any independent client would have great difficulty keeping up with changes
 
@@ -810,9 +810,10 @@ Code libraries and SDKs
 * Ruby
     + [Rails](http://rubyonrails.org/)
     + [Sinatra](http://www.sinatrarb.com/)
-* Javascript
+* Node
     + [Restify](http://mcavage.me/node-restify/)
     + [Express.js](http://expressjs.com/)
+    + [Hapi.js](http://hapijs.com/)
 * Java
     + [Jersey](https://jersey.java.net/)
     + [Restlet](http://restlet.org/)
@@ -851,7 +852,7 @@ Study Examples
 * [Twilio](http://api.twilio.com/)
 * [Twitter](http://www.twitter.com/api)
 * [Github](http://www.github.com/api)
-* [CIMI, a nice hypermedia-based REST design](http://dmtf.org/sites/default/files/standards/documents/DSP0263_1.0.1.pdf) 
+* [CIMI, a nice hypermedia-based REST design](http://dmtf.org/sites/default/files/standards/documents/DSP0263_1.0.1.pdf)
 
 
 Reading / Videos
@@ -860,7 +861,7 @@ Reading / Videos
 * Mark Nottingham posts on
   + [Web API Versioning](http://www.mnot.net/blog/2011/10/25/web_api_versioning_smackdown)
   + [why to consider linking an HTTP API](http://www.mnot.net/blog/2013/06/23/linking_apis)
-  + [HTTP API Complexity](http://www.mnot.net/blog/2012/06/25/http_api_complexity_model) 
+  + [HTTP API Complexity](http://www.mnot.net/blog/2012/06/25/http_api_complexity_model)
 * [JSON Home, a homepage for HTTP APIs](http://tools.ietf.org/html/draft-nottingham-json-home-03)
 
 
